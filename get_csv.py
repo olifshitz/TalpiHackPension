@@ -13,5 +13,5 @@ driver.get(URL)
 
 report_titles = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemMessage']")]
 report_companies = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemCompany ng-scope']")]
-report_dates = []
+report_dates = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemDate hidden-md hidden-lg ng-binding']")]
 
