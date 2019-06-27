@@ -65,7 +65,7 @@ for rownum in range(ROW_START_TABLE_MANORA, sh_manora.nrows - 9):
 	data = OrderedDict()
 	current_company_name = get_last_recored(current_company_name, row_values[0], False)
 	current_data = get_last_recored(current_data, row_values[3], True)
-	data[PENSION_COMPANY] = NAME_ALTOLER
+	data[PENSION_COMPANY] = NAME_MENORA
 	data[COMPANY_NAME] = current_company_name
 	data[DATE] = current_data
 	data[TOPICS] = row_values[5]
@@ -101,7 +101,7 @@ for altoler_url in ALTOLER_URLS:
 		data = OrderedDict()
 		current_company_name = get_last_recored(current_company_name, row_values[1], False)
 		current_data = get_last_recored(current_data, row_values[7], False)
-		data[PENSION_COMPANY] = NAME_MENORA
+		data[PENSION_COMPANY] = NAME_ALTOLER
 		data[COMPANY_NAME] = current_company_name
 		data[DATE] = current_data
 		data[TOPICS] = row_values[8]
