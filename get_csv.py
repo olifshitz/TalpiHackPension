@@ -11,7 +11,10 @@ URL = "https://maya.tase.co.il/reports/company?q=%7B%22DateFrom%22:%222018-12-26
 driver = webdriver.Firefox(executable_path=GECKOD_DRIVER_PATH)
 driver.get(URL)
 
-report_titles = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemMessage']")]
+report_titles = [element.text for element in driver.find_elements_by_xpath("//*[@class='messageContent ng-binding']")]
 report_companies = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemCompany ng-scope']")]
-report_dates = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemDate hidden-md hidden-lg ng-binding']")]
+report_dates = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemDate hidden-xs hidden-sm ng-binding']")]
+# report_dates = [element.text for element in driver.find_elements_by_xpath("//*[@class='feedItemDate hidden-md hidden-lg ng-binding']")]
 
+df = pd.DataFrame(list(zip(report_titles, report_companies, report_dates)), columns = ['Title', 'Company', 'Date'])
+df.to_csv(RESULT_CSV_PATH, encoding='utf8')
